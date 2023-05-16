@@ -8,12 +8,28 @@
    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
    <link rel="stylesheet" href="style.css">
 </head>
-   <h1>ROCK PAPER SCISSORS</h1>
-   <button id="rock">✊</button>
-   <button id="paper">✋</button>
-   <button id="scissor">✌️</button>
-   <div id="canvas"></div>
 <body>
+   <h1>ROCK PAPER SCISSORS<span style="font-size: small;">*out of 5</span></h1>
+   <div class="container">
+      <div id="buttons">
+         <button id="rock">✊</button>
+         <button id="paper">✋</button>
+         <button id="scissors">✌️</button>
+      </div>
+      <h2 id="clickStart">Click one to start game.</h2>
+   </div>
+   <div id="canvas">
+      <div class="score">
+         <h2>Score</h2>
+         <h3>Player: <span id="player-score">0</span></h3>
+         <h3>Computer: <span id="computer-score">0</span></h3>
+      </div>
+      <div id="result">
+         <p>Computer: <span id="computer-result"></span> </p>
+         <p>Player: <span id="player-result"></span></p>
+         <p id="announcer"></p>
+      </div>
+   </div>
    <script src="app.js"></script>
 </body>
 </html>
