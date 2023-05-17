@@ -11,6 +11,10 @@ let rockButton = document.getElementById('rock');
 let paperButton = document.getElementById('paper');
 let scissorsButton = document.getElementById('scissors');
 
+const buttons = document.getElementsByClassName('rps');
+const cards = document.getElementsByClassName('card');
+
+
 function getComputerChoice() {
    const choices = ['✊', '✋', '✌️']
    const randomChoice = choices[Math.floor(Math.random() * choices.length)]
@@ -43,6 +47,15 @@ function updateUI(playerChoice, computerChoice, result, scores) {
    else {
       announcer.innerText = `${result} wins this round!`
    }
+   playerScore.innerText = scores.player;
+   computerScore.innerText = scores.computer;
+}
+
+
+function resetUI(){
+   computer.innerText = ``;
+   player.innerText = ``;
+   announcer.innerText = ``;
    playerScore.innerText = scores.player;
    computerScore.innerText = scores.computer;
 }
@@ -81,6 +94,13 @@ function playGame(playerChoice) {
       // buttonContainer.style.display = 'none'
       gameDone.style.display = 'block'
       gameDone.innerText = `...And that's game done. The winner is ${result}!`
+
+      //disable buttons
+      for (let i = 0; i < buttons.length; i++) {
+         buttons[i].disabled = true;
+         buttons[i].classList.add('disabled');
+      } 
+      
    }
 }
 
@@ -89,9 +109,14 @@ function restartGame() {
    scores.player = 0;
    scores.computer = 0;
 
-   console.log('playAgain')
    gameDone.style.display = 'none'
    playAgainButton.style.display = 'none'
+
+   for (let i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = false;
+      buttons[i].classList.remove('disabled');
+    }       
+   resetUI();
 }
 
 rockButton.addEventListener('click', function() { playGame('✊')});

@@ -21,17 +21,24 @@ button {
  border-radius: 4px;
  cursor: pointer;
 }
-
 .rps {
   font-size: 6rem;
+  transition: opacity 0.3s ease;
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 
 button:hover {
   background-color: #1d2c3e;
 }
 
 .title {
-  margin-left: 1rem;
+
+  margin-left: 2rem;
 }
 
 .main-container {
@@ -44,14 +51,41 @@ button:hover {
   flex-basis: 25%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-}
-.score {
   border: #30475e 0.8px solid;
-  padding: 1.5rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 
+#announcer,
+#play-again,
+#game-done {
+  width: 80%;
+}
+.score {
+  width: 80%;
+  border: #30475e 0.8px solid;
+  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 4px;
+}
+
+.score h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.score p {
+  margin-bottom: 0.6rem;
+  font-size: 1.5rem;
+}
+
+#play-again {
+  font-size: 2rem;
+}
+
+/**RIGHT PANEL**/
 #rightpanel {
   flex-basis: 75%;
   display: flex;
@@ -74,21 +108,24 @@ button:hover {
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   width: 80%;
-  height: 100%;
+  height: calc(100% - 16.5px); 
   padding: 10px 20px;
   border-radius: 4px;
-  border: #30475e 0.8px solid;
+  border: #4d7297 1px solid;
 }
 
+
 #player-card {
-  margin: 1rem;
+  margin: 0 1rem 1rem 1rem;
+  font-size: 2rem;
 }
 
 #computer-card {
-  margin: 1rem 1rem 1rem 0;
+  margin: 0 1rem 1rem 0;
+  font-size: 2rem;
 }
 
 .hands {
@@ -104,10 +141,26 @@ button:hover {
 } */
 
 #announcer {
-  font-size: 1.5rem;
+  font-size: 1rem;
   margin: 20px;
 }
 
-.game-done {
+
+#game-done {
+  font-size: 1.5rem;
   display: none;
+}
+
+
+@keyframes fadeAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
+.card .hands {
+  animation: fadeAnimation 0.3s ease;
 }
