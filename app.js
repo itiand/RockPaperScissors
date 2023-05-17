@@ -1,10 +1,15 @@
 let computer = document.getElementById('computer-result')
 let player = document.getElementById('player-result')
-let announced = document.getElementById('announcer')
+let announcer = document.getElementById('announcer')
 let playerScore = document.getElementById('player-score')
 let computerScore = document.getElementById('computer-score')
-let canvasBlock = document.getElementById('canvas')
-let clickStartTitle = document.getElementById('clickStart')
+let gameDone = document.getElementById('game-done')
+let playAgainButton = document.getElementById('play-again')
+
+let buttonContainer = document.getElementById('buttons');
+let rockButton = document.getElementById('rock');
+let paperButton = document.getElementById('paper');
+let scissorsButton = document.getElementById('scissors');
 
 function getComputerChoice() {
    const choices = ['✊', '✋', '✌️']
@@ -33,10 +38,10 @@ function updateUI(playerChoice, computerChoice, result, scores) {
    computer.innerText = `${computerChoice}`
    player.innerText = `${playerChoice}`
    if (result === 'tie') {
-      announced.innerText = `Tie! Play again.`
+      announcer.innerText = `Tie! Play again.`
    }
    else {
-      announced.innerText = `${result} wins this round!`
+      announcer.innerText = `${result} wins this round!`
    }
    playerScore.innerText = scores.player;
    computerScore.innerText = scores.computer;
@@ -48,19 +53,14 @@ let scores = {
    computer: 0
 }
 
-function checkScore() {
+function isGameDone() {
    if(scores.player >= 3 || scores.computer >= 3) {
       return true
    } else false
 }
 
+
 function playGame(playerChoice) {
-   if(window.getComputedStyle(clickStartTitle).display === 'block') {
-      clickStartTitle.style.display = 'none'
-   }
-   if(window.getComputedStyle(canvasBlock).display === 'none') {
-      canvasBlock.style.display = 'block';
-   }
 
    const computerChoice = getComputerChoice();   //get computerchoice
 
@@ -76,16 +76,28 @@ function playGame(playerChoice) {
    updateUI(playerChoice, computerChoice, result, scores);
 
    //Check if either player or computer has 3 points
-   if(checkScore()) {
-      let h3 = document.createElement('h3')
-      h3.innerText = `...And that's game done. The winner is ${result}!`
-      announced.appendChild(h3)
+   if(isGameDone()) {
+      playAgainButton.style.display = 'inline-block'
+      // buttonContainer.style.display = 'none'
+      gameDone.style.display = 'block'
+      gameDone.innerText = `...And that's game done. The winner is ${result}!`
    }
 }
 
-document.getElementById('rock').addEventListener('click', function() { playGame('✊')});
-document.getElementById('paper').addEventListener('click', function() { playGame('✋')});
-document.getElementById('scissors').addEventListener('click', function() { playGame('✌️')});
+function restartGame() {
+   //restart score
+   scores.player = 0;
+   scores.computer = 0;
+
+   console.log('playAgain')
+   gameDone.style.display = 'none'
+   playAgainButton.style.display = 'none'
+}
+
+rockButton.addEventListener('click', function() { playGame('✊')});
+paperButton.addEventListener('click', function() { playGame('✋')});
+scissorsButton.addEventListener('click', function() { playGame('✌️')});
+playAgainButton.addEventListener('click', function() { restartGame()})
 
 
-///CURRENTLY - When game done, need to to disable the buttons
+// neeed to add a function that restarts the game

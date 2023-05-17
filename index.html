@@ -6,28 +6,38 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Rock Paper Scissors</title>
    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <h1>ROCK PAPER SCISSORS<span style="font-size: small;">*out of 5</span></h1>
-   <div class="container">
-      <div id="buttons">
-         <button id="rock">✊</button>
-         <button id="paper">✋</button>
-         <button id="scissors">✌️</button>
-      </div>
-      <h2 id="clickStart">Click one to start game.</h2>
-   </div>
-   <div id="canvas">
-      <div class="score">
-         <h2>Score</h2>
-         <h3>Player: <span id="player-score">0</span></h3>
-         <h3>Computer: <span id="computer-score">0</span></h3>
-      </div>
-      <div id="result">
-         <p>Computer: <span id="computer-result"></span> </p>
-         <p>Player: <span id="player-result"></span></p>
+   <h1 class="title">ROCK PAPER SCISSORS<span style="font-size: small;">*out of 5</span></h1>
+   <div class="main-container">
+      <div id="leftpanel" class="container">
+         <div class="score">
+            <h2>Score</h2>
+            <h3>Player: <span id="player-score">0</span></h3>
+            <h3>Computer: <span id="computer-score">0</span></h3>
+         </div>
          <p id="announcer"></p>
+         <p id="game-done"></p>
+         <button id="play-again" style="display: none;"><i class="fas fa-redo"></i></button>
+      </div>
+      <div id="rightpanel" class="container">
+         <div id="result">
+            <div class="card" id="player-card">
+               <h1><span class="hands" id="player-result"></span></h1>
+               <p>Player</p>
+            </div>
+            <div class="card" id="computer-card">
+               <h1><span class="hands" id="computer-result"></span></h1>
+               <p>Computer</p>
+            </div>
+         </div>
+         <div id="buttons">
+            <button class='rps'id="rock">✊</button>
+            <button class='rps' id="paper">✋</button>
+            <button class='rps' id="scissors">✌️</button>
+         </div>
       </div>
    </div>
    <script src="app.js"></script>

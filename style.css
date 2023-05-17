@@ -1,7 +1,113 @@
-button {
-  font-size: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-#canvas {
+body {
+  background-color: #222831;
+  color: #fbf7c6;
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+ padding: 20px 40px;
+ margin: 10px;
+ background-color: #30475e;
+ color: #ffffff;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+}
+
+.rps {
+  font-size: 6rem;
+}
+
+button:hover {
+  background-color: #1d2c3e;
+}
+
+.title {
+  margin-left: 1rem;
+}
+
+.main-container {
+  min-height: calc(100vh - 79.68px);
+  text-align: center;
+  display: flex;
+}
+
+#leftpanel {
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.score {
+  border: #30475e 0.8px solid;
+  padding: 1.5rem;
+}
+
+#rightpanel {
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+#result {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#buttons {
+  flex-basis: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: #30475e 0.8px solid;
+}
+
+#player-card {
+  margin: 1rem;
+}
+
+#computer-card {
+  margin: 1rem 1rem 1rem 0;
+}
+
+.hands {
+  font-size: 10rem;
+}
+
+
+/* .container {
+  text-align: center;
+  border:  #a19f89 0.2px solid;
+  box-shadow: 0 0 10px rgba(251, 247, 198, 0.5);
+
+} */
+
+#announcer {
+  font-size: 1.5rem;
+  margin: 20px;
+}
+
+.game-done {
   display: none;
 }
