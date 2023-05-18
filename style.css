@@ -5,7 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 body {
   background-color: #222831;
   color: #fbf7c6;
@@ -141,26 +144,25 @@ button:hover {
 } */
 
 #announcer {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 20px;
 }
 
 
 #game-done {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: none;
 }
 
-
-@keyframes fadeAnimation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0.5;
-  }
+/**ANIMATION**/
+.card .hands
+{
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.card .hands {
-  animation: fadeAnimation 0.3s ease;
+.card .hands.animate
+ {
+  opacity: 0;
 }
+
